@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "subota"
+version = "0.1.0"
+description = "Manager bots"
+authors = ["Marat2010 <marat.s.73@mail.ru>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi-structlog = "^0.5.0"
+fastapi = "^0.115.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
