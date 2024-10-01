@@ -8,8 +8,14 @@ class RunConfig(BaseModel):
     port: int = 8900
 
 
+class ApiV1Prefix(BaseModel):
+    prefix: str = "/v1"
+    bots: str = "/bots"
+
+
 class ApiPrefix(BaseModel):
     prefix: str = "/api"
+    v1: ApiV1Prefix = ApiV1Prefix()
 
 
 class DatabaseConfig(BaseModel):
@@ -41,5 +47,5 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
-print(settings.db.url)
-print(settings.db.echo)
+# print(settings.db.url)
+# print(settings.db.echo)
