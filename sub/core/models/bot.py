@@ -6,6 +6,7 @@ from sqlalchemy import func
 from sqlalchemy.orm import Mapped, mapped_column
 
 from .base import Base
+from .mixins.int_id_pk import IntIdPkMixin
 
 str_256 = Annotated[str, 256]
 created_at = Annotated[datetime.datetime, mapped_column(server_default=func.now())]
@@ -21,7 +22,7 @@ class ActiveBot(enum.Enum):
     No = "Нет"
 
 
-class Bot(Base):
+class Bot(IntIdPkMixin, Base):
     # __tablename__ = 'bot'
     web_server_host: Mapped[str_256] = mapped_column(nullable=False)
     web_server_port: Mapped[int] = mapped_column(nullable=False, unique=True)
